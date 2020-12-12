@@ -1,8 +1,9 @@
-import sun.security.tools.keytool.*;
-import javax.crypto.*;
+
 public class Main {
 
     public static void main(String[] args) {
-	// write your code here
+    HashOperations sa=new HashOperations();
+       System.out.println( sa.byteArrayToHexDecimal(sa.SHA256("sas")));
+
     }
 }
