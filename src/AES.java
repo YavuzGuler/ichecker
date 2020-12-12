@@ -20,7 +20,6 @@ public byte[] decryption(String Key,byte[] cipherText){
     try {
         HashOperations hashOperations=new HashOperations();
         Cipher cipher=Cipher.getInstance("AES/ECB/PKCS5Padding");
-
         SecretKeySpec secretKey=new SecretKeySpec(hashOperations.MD5(Key),"AES");
         cipher.init(Cipher.DECRYPT_MODE,secretKey);
         return cipher.doFinal(cipherText);
