@@ -4,7 +4,7 @@ import java.util.Collections;
 
 public class FileReadingOperations {
 
-    public static void readpathandhashinside(String path, String outfilename){
+    public void readpathandhashinside(String path, String outfilename){
 
         File[] files = finder(path);
         ArrayList<String> allfiles = new ArrayList<String>();
