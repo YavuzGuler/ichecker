@@ -1,9 +1,6 @@
 import sun.security.tools.keytool.*;
 import sun.security.x509.X500Name;
-
-import javax.crypto.BadPaddingException;
 import javax.crypto.Cipher;
-import javax.net.ssl.X509KeyManager;
 import javax.xml.bind.DatatypeConverter;
 import java.io.*;
 
@@ -25,7 +22,7 @@ public class PPKey {
     }
 
     public byte[] encrypt(byte[] plainText,PublicKey publicKey){
-        try {
+        try{
             if(publicKey==null){
                 System.out.println("Password wrong");
                 System.exit(0);
@@ -55,7 +52,7 @@ public class PPKey {
         return null;
     }
     public byte[] sign(byte[] bytes,PrivateKey privateKey){
-        try {
+        try{
             if(privateKey==null){
                 System.out.println("Password wrong");
                 System.exit(0);
@@ -158,7 +155,5 @@ public class PPKey {
        }catch (Exception e){
            e.printStackTrace();
        }
-
-
     }
 }
