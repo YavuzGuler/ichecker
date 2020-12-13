@@ -1,0 +1,2 @@
+adummy1.txt is here.
+this is second line

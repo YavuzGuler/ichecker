@@ -1,6 +1,4 @@
-
 import sun.security.tools.keytool.*;
-
 import sun.security.x509.X500Name;
 
 import javax.crypto.BadPaddingException;
