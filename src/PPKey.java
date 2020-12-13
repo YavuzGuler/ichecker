@@ -1,15 +1,13 @@
 import sun.security.tools.keytool.*;
-import sun.security.x509.X500Name;
+import sun.security.x509.*;
+
 import javax.crypto.Cipher;
 import javax.xml.bind.DatatypeConverter;
 import java.io.*;
-
+import java.security.cert.X509Certificate;
 import java.nio.charset.StandardCharsets;
 import java.security.*;
-import java.security.cert.Certificate;
 import java.security.cert.CertificateFactory;
-import java.security.cert.X509Certificate;
-
 import java.security.spec.PKCS8EncodedKeySpec;
 import java.util.*;
 
@@ -123,9 +121,8 @@ public class PPKey {
 
             if(aesDecryption.split(" ")[1].equals("Only-dead-people-can-see!")){
                 KeyFactory keyFactory=KeyFactory.getInstance("RSA");
-                PrivateKey key= keyFactory.generatePrivate(new PKCS8EncodedKeySpec(Base64.getDecoder().decode(aesDecryption.split(" ")[0])));
 
-                return key;
+                return keyFactory.generatePrivate(new PKCS8EncodedKeySpec(Base64.getDecoder().decode(aesDecryption.split(" ")[0])));
             }
             else{
                 return null;

@@ -69,12 +69,19 @@ return null;
     public void signVerification(String regFile,String path, String logFile, String hash,String publicKeyCertificate){
         PPKey ppKey=new PPKey();
         PublicKey publicKey=ppKey.readCertificate(publicKeyCertificate);
-        String pathFiles=readpathandhashinside(path,regFile,hash,logFile,0);
-        byte[] hashedvalues;
-        hashedvalues=(hash.equals("MD5"))? this.hasher.MD5(pathFiles.getBytes(StandardCharsets.UTF_8)):this.hasher.SHA256(pathFiles.getBytes(StandardCharsets.UTF_8));
         ArrayList<String> regFileList=getSignature(regFile);
+        StringBuilder stringBuilder=new StringBuilder();
         if(regFileList==null)
             System.exit(-1);
+        for(int i = 0; i<regFileList.size()-1; i++){
+            stringBuilder.append(regFileList.get(i));
+           if(i !=regFileList.size()-2)
+               stringBuilder.append("\n");
+        }
+        System.out.println(stringBuilder.toString());
+        byte[] hashedvalues;
+        hashedvalues=(hash.equals("MD5"))? this.hasher.MD5(stringBuilder.toString().getBytes(StandardCharsets.UTF_8)):this.hasher.SHA256(stringBuilder.toString().getBytes(StandardCharsets.UTF_8));
+
         if(!Arrays.equals(hashedvalues, ppKey.signVerification(Base64.getDecoder().decode(regFileList.get(regFileList.size()-1).getBytes(StandardCharsets.UTF_8)), publicKey))){
             appendStrToFile(new File(logFile),timeReturner()+": Registry file verification failed!",1);
             System.exit(0);
@@ -84,9 +91,40 @@ return null;
         }
     }
     public int checkFiles(String regFile,String path,String logFile,String hash,ArrayList<String> regFileList){
-        ArrayList<String> pathList = new ArrayList<String>(Arrays.asList(readpathandhashinside(path, regFile, hash, logFile, 0).split("\n")));
-        
-        return 0;
+        ArrayList<String> pathList = new ArrayList<>(Arrays.asList(readpathandhashinside(path, regFile, hash, logFile, 0).split("\n")));
+       regFileList.remove(regFileList.size()-1);
+        int returnValue=0;
+        for(int i=0;i<regFileList.size();i++){
+            for(int j=0;j<pathList.size();j++){
+                if(regFileList.get(i).equals(pathList.get(j))){
+                    regFileList.remove(i);
+                    i=i-1;
+                    pathList.remove(j);
+                    break;
+                }
+                else if(regFileList.get(i).split(" ")[0].equals(pathList.get(j).split(" ")[0])){
+                    appendStrToFile(new File(logFile),timeReturner()+": "+regFileList.get(i).split(" ")[0]+" is altered",1);
+                    regFileList.remove(i);
+                    pathList.remove(j);
+                    i=i-1;
+                    returnValue=-1;
+                    break;
+                }
+            } }
+            if(regFileList.size()!=0){
+                returnValue=-1;
+                for (String s : regFileList) {
+                    appendStrToFile(new File(logFile), timeReturner()+": "+s.split(" ")[0] + " is deleted", 1);
+                }
+            }
+            if(pathList.size()!=0){
+                returnValue=-1;
+                for (String s : pathList) {
+                    appendStrToFile(new File(logFile), timeReturner()+": "+s.split(" ")[0] + " is created", 1);
+                }
+            }
+
+        return returnValue;
     }
 
     public  String readpathandhashinside(String path, String regFile,String hash,String logFile,int sign){
@@ -95,7 +133,8 @@ return null;
 
         //sorts filename array
         Collections.sort(allfiles);
-        appendStrToFile(new File(logFile),timeReturner()+": Registry file is created at "+ logFile+"!",1);
+        if( sign==1)
+            appendStrToFile(new File(logFile),timeReturner()+": Registry file is created at "+ logFile+"!",1);
 
         StringBuilder returnValue=new StringBuilder();
         for(int i=0;i<allfiles.size();i++){
