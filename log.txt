@@ -1,0 +1,70 @@
+13/12/2020 18:14:40: Wrong password attempt!
+13/12/2020 18:14:47: Registry file is created at log.txt!
+13/12/2020 18:14:47: D:\bbm465\ichecker\dummies\adummy1.txt is added to registry.
+13/12/2020 18:14:47: D:\bbm465\ichecker\dummies\dummy1.txt is added to registry.
+13/12/2020 18:14:47: D:\bbm465\ichecker\dummies\dummy2.txt is added to registry.
+13/12/2020 18:14:47: 3 files are added to the registry and registrycreation is finished! 
+13/12/2020 18:24:32: Registry file is created at log.txt!
+13/12/2020 18:24:32: D:\bbm465\ichecker\dummies\adummy1.txt is added to registry.
+13/12/2020 18:24:32: D:\bbm465\ichecker\dummies\dummy1.txt is added to registry.
+13/12/2020 18:24:32: D:\bbm465\ichecker\dummies\dummy2.txt is added to registry.
+13/12/2020 18:24:32: 3 files are added to the registry and registry creation is finished! 
+13/12/2020 18:25:54: Wrong password attempt!
+13/12/2020 18:30:14: Registry file is created at log.txt!
+13/12/2020 18:30:14: D:\bbm465\ichecker\dummies\adummy1.txt is added to registry.
+13/12/2020 18:30:14: D:\bbm465\ichecker\dummies\dummy1.txt is added to registry.
+13/12/2020 18:30:14: D:\bbm465\ichecker\dummies\dummy2.txt is added to registry.
+13/12/2020 18:30:14: 3 files are added to the registry and registry creation is finished! 
+13/12/2020 18:45:37: Registry file is created at log.txt!
+13/12/2020 18:45:37: D:\bbm465\ichecker\dummies\adummy1.txt is added to registry.
+13/12/2020 18:45:37: D:\bbm465\ichecker\dummies\dummy1.txt is added to registry.
+13/12/2020 18:45:37: D:\bbm465\ichecker\dummies\dummy2.txt is added to registry.
+13/12/2020 18:45:37: 3 files are added to the registry and registry creation is finished! 
+13/12/2020 18:45:53: Registry file is created at log.txt!
+13/12/2020 18:45:53: D:\bbm465\ichecker\dummies\adummy1.txt is added to registry.
+13/12/2020 18:45:53: D:\bbm465\ichecker\dummies\dummy1.txt is added to registry.
+13/12/2020 18:45:53: D:\bbm465\ichecker\dummies\dummy2.txt is added to registry.
+13/12/2020 18:45:53: 3 files are added to the registry and registry creation is finished! 
+13/12/2020 18:49:21: Registry file is created at log.txt!
+13/12/2020 18:49:21: Registry file verification failed!
+13/12/2020 18:49:57: Registry file is created at log.txt!
+13/12/2020 18:49:58: Registry file verification failed!
+13/12/2020 18:50:32: Registry file is created at log.txt!
+13/12/2020 18:51:27: Registry file is created at log.txt!
+13/12/2020 18:51:27: D:\bbm465\ichecker\dummies\adummy1.txt is added to registry.
+13/12/2020 18:51:27: D:\bbm465\ichecker\dummies\dummy1.txt is added to registry.
+13/12/2020 18:51:27: D:\bbm465\ichecker\dummies\dummy2.txt is added to registry.
+13/12/2020 18:51:27: 3 files are added to the registry and registry creation is finished! 
+13/12/2020 18:51:42: Registry file is created at log.txt!
+13/12/2020 18:51:43: Registry file verification failed!
+13/12/2020 18:52:22: Registry file is created at log.txt!
+13/12/2020 18:55:08: Registry file is created at log.txt!
+13/12/2020 18:55:08: Registry file verification failed!
+13/12/2020 18:56:24: Registry file is created at log.txt!
+13/12/2020 18:56:35: Registry file is created at log.txt!
+13/12/2020 18:57:02: Registry file is created at log.txt!
+13/12/2020 18:57:02: Registry file verification failed!
+13/12/2020 19:03:27: Registry file is created at log.txt!
+13/12/2020 19:03:27: Registry file verification failed!
+13/12/2020 19:03:47: Registry file is created at log.txt!
+13/12/2020 19:03:47: The directory is checked and no change is detected!
+13/12/2020 19:05:47: Registry file is created at log.txt!
+13/12/2020 19:05:47: D:\bbm465\ichecker\dummies\adummy1.txt is added to registry.
+13/12/2020 19:05:47: D:\bbm465\ichecker\dummies\dummy1.txt is added to registry.
+13/12/2020 19:05:47: D:\bbm465\ichecker\dummies\dummy2.txt is added to registry.
+13/12/2020 19:05:47: 3 files are added to the registry and registry creation is finished! 
+13/12/2020 19:06:02: Registry file is created at log.txt!
+13/12/2020 19:06:02: D:\bbm465\ichecker\dummies\adummy1.txt is added to registry.
+13/12/2020 19:06:02: D:\bbm465\ichecker\dummies\dummy1.txt is added to registry.
+13/12/2020 19:06:02: D:\bbm465\ichecker\dummies\dummy2.txt is added to registry.
+13/12/2020 19:06:02: 3 files are added to the registry and registry creation is finished! 
+13/12/2020 19:06:43: Registry file is created at log.txt!
+13/12/2020 19:06:43: D:\bbm465\ichecker\dummies\adummy1.txt is added to registry.
+13/12/2020 19:06:43: D:\bbm465\ichecker\dummies\dummy1.txt is added to registry.
+13/12/2020 19:06:43: D:\bbm465\ichecker\dummies\dummy2.txt is added to registry.
+13/12/2020 19:06:43: 3 files are added to the registry and registry creation is finished! 
+13/12/2020 19:07:01: Registry file is created at log.txt!
+13/12/2020 19:07:01: D:\bbm465\ichecker\dummies\adummy1.txt is added to registry.
+13/12/2020 19:07:01: D:\bbm465\ichecker\dummies\dummy1.txt is added to registry.
+13/12/2020 19:07:01: D:\bbm465\ichecker\dummies\dummy2.txt is added to registry.
+13/12/2020 19:07:01: 3 files are added to the registry and registry creation is finished! 

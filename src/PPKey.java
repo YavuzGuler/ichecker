@@ -36,6 +36,21 @@ public class PPKey {
         }
         return null;
     }
+    public byte[] signVerification(byte[] plainText,PublicKey publicKey){
+        try{
+            if(publicKey==null){
+                System.out.println("Certificate wrong");
+                System.exit(0);
+            }
+            Cipher cipher=Cipher.getInstance("RSA/ECB/PKCS1Padding");
+
+            cipher.init(Cipher.DECRYPT_MODE,publicKey);
+            return cipher.doFinal(plainText);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return null;
+    }
     public byte[] decryption(byte[] cipherText,PrivateKey privateKey){
         try {
             if(privateKey==null){
