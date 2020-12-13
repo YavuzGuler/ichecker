@@ -3,7 +3,9 @@ import javax.crypto.spec.SecretKeySpec;
 import java.security.Key;
 
 public class AES {
-public byte[] encryption(String Key,byte[] plainText){
+
+
+    public byte[] encryption(String Key, byte[] plainText){
     try {
         HashOperations hashOperations=new HashOperations();
         Cipher cipher=Cipher.getInstance("AES/ECB/PKCS5Padding");
@@ -11,9 +13,8 @@ public byte[] encryption(String Key,byte[] plainText){
         cipher.init(Cipher.ENCRYPT_MODE,secretKey);
         return cipher.doFinal(plainText);
     }catch (Exception e){
-        e.printStackTrace();
+       return null;
     }
-    return null;
 }
 
 public byte[] decryption(String Key,byte[] cipherText){
@@ -24,8 +25,7 @@ public byte[] decryption(String Key,byte[] cipherText){
         cipher.init(Cipher.DECRYPT_MODE,secretKey);
         return cipher.doFinal(cipherText);
     }catch (Exception e){
-        e.printStackTrace();
+        return null;
     }
-    return null;
 }
 }
