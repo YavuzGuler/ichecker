@@ -1,75 +1,58 @@
 import java.io.*;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 
 public class FileReadingOperations {
-
-    public void readpathandhashinside(String path, String outfilename){
-
-        File[] files = finder(path);
-        ArrayList<String> allfiles = new ArrayList<String>();
-
-
-        //reads all filenames on specified path
-        for(int i=0;i<files.length;i++){
-            String[] array1 = files[i].toString().split("/");
-            allfiles.add(array1[array1.length-1]);
+    public byte[] readAllBytesFromFile(String filePath){
+        try {
+            return Files.readAllBytes(Paths.get(filePath));
+        }catch (Exception e){
+            e.printStackTrace();
         }
+return null;
+    }
+
+    public  void readpathandhashinside(String path, String outfilename,String hash){
+        //reads all filenames on specified path
+        ArrayList<File> allfiles = new ArrayList<File>(Arrays.asList(finder(path)));
 
         //sorts filename array
         Collections.sort(allfiles);
-
-
-
-        for(int i=0;i<allfiles.size();i++){
-
-            //specifies full path to file
-            String initpath = path+ "/" + allfiles.get(i);
-
-
-            File myObj = new File(initpath);
-            FileInputStream fileInputStream;
-            File outputfile = new File(outfilename);
-
-            //reads specific file and hashes, writes hash values to output file
-            try {
-                fileInputStream = new FileInputStream(myObj);
-                byte[] crunchifyValue = new byte[(int) myObj.length()];
-                fileInputStream.read(crunchifyValue);
-                fileInputStream.close();
-
-                String fileContent = new String(crunchifyValue, "UTF-8");
-                HashOperations hasher = new HashOperations();
-                byte[] hashedvalues = hasher.MD5(fileContent);
-
-                for(int t=0;t<hashedvalues.length;t++){
-                    //appends MD5 values to output file.
-                    appendStrToFile(outputfile,hashedvalues[t]+" ");
-
-                }
-                //creates new line at output file
-                appendStrToFile(outputfile,"\n");
-            } catch (IOException e) {
-                // TODO Auto-generated catch block
-                e.printStackTrace();
-            }
-
-
-
-
+        File outputfile=null;
+        try {
+            BufferedWriter out = new BufferedWriter(
+                    new FileWriter(new File(outfilename), false));
+            out.close();
+        }catch (Exception e){
+            e.printStackTrace();
         }
 
+        for(int i=0;i<allfiles.size();i++){
+             outputfile = new File(outfilename);
+            //reads specific file and hashes, writes hash values to output file
+            byte[] crunchifyValue =readAllBytesFromFile(allfiles.get(i).getAbsolutePath());
+            HashOperations hasher = new HashOperations();
+            byte[] hashedvalues;
+            hashedvalues=(hash.equals("MD5"))? hasher.MD5(crunchifyValue):hasher.SHA256(crunchifyValue);
+            appendStrToFile(outputfile,allfiles.get(i).getAbsolutePath()+" ");
+            appendStrToFile(outputfile,new String(hasher.byteArrayToHexDecimal(hashedvalues)));
+            appendStrToFile(outputfile,"\n");
+        }
     }
 
     //function for appending new lines to output file.
-    public static void appendStrToFile(File file,
-                                       String str)
+    public  void appendStrToFile(File file,String str)
     {
         try {
 
             // Open given file in append mode.
             BufferedWriter out = new BufferedWriter(
                     new FileWriter(file, true));
+
             out.write(str);
             out.close();
         }
@@ -79,13 +62,9 @@ public class FileReadingOperations {
     }
 
     //finder function for txt files in given directory.
-    public static File[] finder(String dirName){
+    public  File[] finder(String dirName){
         File dir = new File(dirName);
-
-        return dir.listFiles(new FilenameFilter() {
-            public boolean accept(File dir, String filename)
-            { return filename.endsWith(".txt"); }
-        } );
+        return dir.listFiles();
 
     }
 
